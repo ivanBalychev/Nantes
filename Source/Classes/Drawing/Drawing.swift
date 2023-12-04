@@ -162,7 +162,7 @@ extension NantesLabel {
                 continue
             }
 
-            for glyphRun in glyphRuns {
+            for glyphRun in glyphRuns.reversed() {
                 guard let attributes = CTRunGetAttributes(glyphRun) as NSDictionary as? [NSAttributedString.Key: Any] else {
                     continue
                 }
