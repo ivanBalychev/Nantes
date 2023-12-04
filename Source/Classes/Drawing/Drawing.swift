@@ -200,7 +200,7 @@ extension NantesLabel {
                 // We don't want to draw too far to the right
                 runBounds.size.width = runBounds.width > width + fillPadding.left + fillPadding.right ? width + fillPadding.left + fillPadding.right : runBounds.width
 
-                let roundedRect = runBounds.inset(by: linkBackgroundEdgeInset).insetBy(dx: lineWidth, dy: lineWidth)
+                let roundedRect = runBounds.inset(by: linkBackgroundEdgeInset)
                 let path: CGPath = UIBezierPath(roundedRect: roundedRect, cornerRadius: cornerRadius).cgPath
 
                 context.setLineJoin(.round)
@@ -212,6 +212,7 @@ extension NantesLabel {
                 }
 
                 if let strokeColor = strokeColor {
+                    if lineWidth > 0.0 { context.setLineWidth(lineWidth) }
                     context.setStrokeColor(strokeColor.cgColor)
                     context.addPath(path)
                     context.strokePath()
