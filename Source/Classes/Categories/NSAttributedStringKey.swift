@@ -14,5 +14,7 @@ public extension NSAttributedString.Key {
     static let nantesLabelBackgroundFillPadding: NSAttributedString.Key = .init("NantesLabelBackgroundFillPaddingAttribute")
     static let nantesLabelBackgroundLineWidth: NSAttributedString.Key = .init("NantesLabelBackgroundLineWidthAttribute")
     static let nantesLabelBackgroundStrokeColor: NSAttributedString.Key = .init("NantesLabelBackgroundStrokeColorAttribute")
+    static let nantesLabelBackgroundRemoveIcon: NSAttributedString.Key = .init("NantesLabelBackgroundRemoveIcon")
+    static let nantesLabelBackgroundRemoveIconOffset: NSAttributedString.Key = .init("NantesLabelBackgroundRemoveIconOffset")
     static let nantesLabelStrikeOut: NSAttributedString.Key = .init("NantesLabelStrikeOutAttribute")
 }
