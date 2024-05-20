@@ -172,6 +172,8 @@ extension NantesLabel {
                 let fillPadding: UIEdgeInsets = attributes[.nantesLabelBackgroundFillPadding] as? UIEdgeInsets ?? .zero
                 let cornerRadius: CGFloat = attributes[.nantesLabelBackgroundCornerRadius] as? CGFloat ?? 0.0
                 let lineWidth: CGFloat = attributes[.nantesLabelBackgroundLineWidth] as? CGFloat ?? 0.0
+                let removeIcon: UIImage? = attributes[.nantesLabelBackgroundRemoveIcon] as? UIImage
+                let removeIconOffset: CGPoint? = attributes[.nantesLabelBackgroundRemoveIconOffset] as? CGPoint
 
                 guard strokeColor != nil || fillColor != nil else {
                     continue
@@ -216,6 +218,11 @@ extension NantesLabel {
                     context.setStrokeColor(strokeColor.cgColor)
                     context.addPath(path)
                     context.strokePath()
+                }
+                
+                if let removeIcon = removeIcon, let removeImageCGImage = removeIcon.cgImage {
+                    var imageFrame = CGRect(x: roundedRect.maxX - removeIcon.size.width/2.0 + (removeIconOffset?.x ?? 0.0), y: roundedRect.maxY - removeIcon.size.height/2.0 + (removeIconOffset?.y ?? 0.0), width: removeIcon.size.width, height: removeIcon.size.height)
+                    context.draw(removeImageCGImage, in: imageFrame)
                 }
             }
 
